@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :show, :delete]
 
   def index
-  	@posts = Post.all
+  	@posts = Post.all.page params[:page]
   end
 
   def edit
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :subtitle)
   end
 
   def find_post

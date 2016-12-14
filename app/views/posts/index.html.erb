@@ -27,7 +27,7 @@
                             <%=post.title%>
                         </h2>
                         <h3 class="post-subtitle">
-                            <%= raw(post.body).truncate(358) %>
+                            <%= post.subtitle %>
                         </h3>
                     <% end %>
                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on <%= post.created_at.strftime("%B %d, %Y")%> </p>
@@ -38,10 +38,17 @@
                 
                 <hr>
                 <!-- Pager -->
+
                 <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
+                <li class="next">
+                    
+                <%= link_to_next_page @posts, 'Next Page ' %>
+                      
+                </li>
+                <li class="next">
+                <%= link_to_previous_page @posts, 'Previous Page' %>
+                </li>
+                
                 </ul>
             </div>
         </div>
