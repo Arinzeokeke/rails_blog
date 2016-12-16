@@ -15,19 +15,27 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.input :title, class: "form-control" %>
+    <%= f.input :title %>
   </div>
 
   <div class="form-group">
-    <%= f.input :subtitle, class: "form-control" %>
+    <%= f.input :subtitle %>
   </div>
 
   <div class="form-group">
-    <%= f.text_area :body, id: "edit" %>
+    <%= f.input :avatar, as: :file %>
   </div>
 
   <div class="form-group">
-    <%= f.button :submit %>
+    <%= f.text_area :body, id: "edit"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :tag_list , placeholder: "Enter Tags as a string separated by commas. Eg: 'Rihanna, Chris Brown, Celebrity'"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.button :submit, class: " btn btn-success" %>
   </div>
 <% end %>
 <script>

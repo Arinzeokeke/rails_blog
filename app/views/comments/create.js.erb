@@ -1,0 +1,3 @@
+var selector = "<%= if @comment.commentable.class == Post then  '#comments-all' else '#comment_' + @comment.commentable.id.to_s end %>";
+console.log(selector);
+$(selector).html("<%= if @comment.commentable.class == Post then  j render @comment.commentable.comments else  j render @comment.commentable end %>");

@@ -1,0 +1,10 @@
+<div class = "container">
+<h1 class="tag-name">Related Posts To "<%= @tag.name %>"</h1>
+<% if @posts.count > 0%>
+	<div ><%= render "posts/index_partial" %></div>
+<% else %>
+	<div>
+		<h2> Nothing Here :( </h2>
+	</div>
+<% end %>
+</div>

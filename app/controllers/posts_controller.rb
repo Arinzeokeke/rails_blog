@@ -1,11 +1,17 @@
 class PostsController < ApplicationController
+  impressionist :actions=>[:show,:index]
   before_action :find_post, only: [:edit, :update, :show, :delete]
+  #before_action :get_popular, only: [:index, :show]
 
   def index
-  	@posts = Post.all.page params[:page]
+  	@posts = Post.all.order("created_at DESC").page params[:page]
   end
 
   def edit
+  end
+
+  def search
+    #@posts = 
   end
 
   def update
@@ -19,6 +25,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    impressionist(@post)
+    @related_posts = Post.tagged_with(@post.tag_list, any: true).where.not(:id => @post.id ).order("created_at DESC").limit(5)
   end
 
   def new
@@ -49,10 +57,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :subtitle)
+    params.require(:post).permit(:title, :body, :subtitle, :avatar, :tag_list)
   end
 
   def find_post
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 end

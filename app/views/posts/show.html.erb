@@ -9,7 +9,8 @@
                     <div class="post-heading">
                         <h1><%= @post.title %></h1>
                         <h2 class="subheading"><%= @post.subtitle %></h2>
-                        <span class="meta">Posted by <a href="#">Start Bootstrap</a> on <%= @post.created_at.strftime("%B %d, %Y")%> <%=  link_to "Edit Post", edit_post_path(@post), class: "meta"%></span>  
+                        <span class="meta">Posted by <a href="#">Start Bootstrap</a> on <%= @post.created_at.strftime("%B %d, %Y")%> <%=  link_to "Edit Post", edit_post_path(@post), class: "meta"%></span> 
+                        <%= social_share_button_tag(@post.title) %> 
                     </div>
                 </div>
           
@@ -23,12 +24,58 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 fr-view">
- <p>
- 	<%= raw(@post.body) %>
- </p>
+                <div class="img-responsive text-center">
+                            <%= image_tag @post.avatar.url if @post.avatar.file? %>
+                </div>
+ 				<p>
+ 					<%= raw(@post.body) %>
+ 				</p>
                 </div>
             </div>
         </div>
     </article>
 
     <hr>
+
+    <%  if @post.tags.size > 0 %>
+    	
+    
+    <div> 
+    <h2 class="tag-head">Related Topics</h2>
+		<ul class=" tag-list">
+		<%= render @post.tags %>
+		</ul>
+	</div>
+
+	<hr>
+	<% end %>
+    <%  if @related_posts.size > 0 %>
+    <div>
+        <h2>
+            Similar Posts
+        </h2>
+        <% @related_posts.each do |rel| %>
+            <p> <%= link_to rel.title, post_path(rel) %> </p>
+        <% end %>
+    </div>
+    <hr>
+        
+    <% end %>
+
+	
+    
+<div class="comment-section">
+<h2> Comments </h2>
+<%= render "comments/comment_box"%>
+
+<div id = "comments-accordion" class="comment-list">
+    <ul id ="comments-all">
+<% if @post.comments.count > 0 %>
+    <%= render @post.comments %>
+    
+
+<% end %>
+</ul>
+    </div>
+</div>
+

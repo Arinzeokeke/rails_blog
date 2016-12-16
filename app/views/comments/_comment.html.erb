@@ -1,0 +1,53 @@
+<% if comment.id? %>
+<li id = <%= "comment_#{comment.id}" %> style="list-style: none;" >
+
+<article class="row">
+            
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-user"></i> <%=comment.name%></div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= time_ago_in_words comment.created_at %> ago</time>
+                  </header>
+                  <div class="comment-post">
+                    <p>
+                       <%= comment.body %>
+                    </p>
+                  </div>
+                  <div class="row">
+                  	<div class="col-md-6">
+                  		<p class = "text-left"><%= link_to '', get_correct_path(comment), method: :delete, data: { confirm: 'Delete comment?'}, remote: true, class: 'glyphicon glyphicon-trash text-danger', id: "#{comment.id}_delete", title: 'Delete comment', rel: 'tooltip' %>
+                  </p>
+                  	</div>
+                  	<div class="col-md-6">
+                  		<p class="text-right"><a href=<%=  "#comment-box-#{comment.id}" %> data-toggle="collapse" data-parent="#comments-accordion" ><i class="fa fa-reply"></i> Reply</a></p>
+                  	</div>
+                  
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </article>
+	<div class = "collapse" id = <%=  "comment-box-#{comment.id}"%> >
+	<%= form_for [comment, Comment.new]  , class: "form-inline" , remote: true do  |f| %>
+	<div class="form-group">
+		<%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= f.text_area :body, placeholder: 'Add a Reply' , class: "form-control", id: "comment_content"%>
+	</div>
+
+	<div class="form-group">
+		<%=  submit_tag "Reply", :class => "btn btn-success green" %>
+	</div>
+
+
+	<% end %>
+	</div>
+	<ul>
+		<%= render comment.comments %>
+	</ul>
+</li>
+<% end %>
