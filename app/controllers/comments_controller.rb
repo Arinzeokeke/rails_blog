@@ -3,21 +3,20 @@ class CommentsController < ApplicationController
 	before_action :get_comment, only: [:destroy]
 	before_action :find_commentable
 	def create
-      @comment = @commentable.comments.new comment_params
+    @comment = @commentable.comments.new comment_params
 
-      if @comment.save
-        respond_to do |format|
-        	format.html do
-          		flash[:success] = 'Comment posted.'
-          		redirect_to :back
-        	end
-        	format.js # JavaScript response
-        end      
-     else
-        redirect_to :back, notice: "Your comment wasn't posted!"
-      end
-
+    if @comment.save
+      respond_to do |format|
+        format.html do
+          	flash[:success] = 'Comment posted.'
+          	redirect_to :back
+        end
+        format.js # JavaScript response
+      end      
+    else
+      redirect_to :back, notice: "Your comment wasn't posted!"
     end
+  end
 
 	def destroy
 		@comment.destroy
