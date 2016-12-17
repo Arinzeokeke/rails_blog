@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  impressionist :actions=>[:show,:index]
+  #impressionist :actions=>[:show,:index]
   before_action :find_post, only: [:edit, :update, :show, :delete]
   #before_action :get_popular, only: [:index, :show]
 
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    impressionist(@post)
+    #impressionist(@post)
     @related_posts = Post.tagged_with(@post.tag_list, any: true).where.not(:id => @post.id ).order("created_at DESC").limit(5)
   end
 

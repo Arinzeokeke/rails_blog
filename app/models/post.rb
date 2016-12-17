@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 	validates :body, presence: true
 	has_many :comments, as: :commentable, dependent: :destroy
 	acts_as_taggable
-	is_impressionable :counter_cache => true, :column_name => :counter_cache
+	#is_impressionable :counter_cache => true, :column_name => :counter_cache
 	validates_length_of :subtitle, :maximum => 100
 	include FriendlyId
 	friendly_id :title, use: :slugged
