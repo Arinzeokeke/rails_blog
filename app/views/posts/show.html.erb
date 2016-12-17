@@ -9,7 +9,7 @@
                     <div class="post-heading">
                         <h1><%= @post.title %></h1>
                         <h2 class="subheading"><%= @post.subtitle %></h2>
-                        <span class="meta">Posted by <a href="#">Start Bootstrap</a> on <%= @post.created_at.strftime("%B %d, %Y")%> <%=  link_to "Edit Post", edit_post_path(@post), class: "meta"%></span> 
+                        <span class="meta">Posted by <a href="#">Buhari</a> on <%= @post.created_at.strftime("%B %d, %Y")%> <%=  link_to "Edit Post", edit_post_path(@post), class: "meta"%></span> 
                         <%= social_share_button_tag(@post.title) %> 
                     </div>
                 </div>
