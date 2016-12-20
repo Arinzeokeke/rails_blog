@@ -9,7 +9,7 @@
                     <div class="post-heading show-post-heading text-center" style="color: black; padding: 10px;">
                         <h1 class="text-center"><%= @post.title %></h1>
                         <h4 class="text-center subheading"><em><%= @post.subtitle %></em></h4>
-                        <span class="meta">Posted  <%= time_ago_in_words @post.created_at %> ago by Buhari </span>
+                        <span class="meta">Posted <%= time_ago_in_words @post.created_at %> ago </span>
                         <% if admin_signed_in? %>
 
                         <%=  link_to "Edit Post", edit_post_path(@post), class: "meta"%>
