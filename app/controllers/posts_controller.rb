@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   #impressionist :actions=>[:show,:index]
-  before_action :find_post, only: [:edit, :update, :show, :delete]
+  before_action :find_post, only: [:edit, :update, :show, :destroy]
   #before_action :get_popular, only: [:index, :show]
+  before_action :authenticate_admin!, only: [:edit, :update, :new, :destroy]
 
   def index
   	@posts = Post.all.order("created_at DESC").page params[:page]

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/secret', as: 'rails_admin'
+  devise_for :admins
+  
   get 'tags/index'
 
   get 'tags/show'

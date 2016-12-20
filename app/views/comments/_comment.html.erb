@@ -16,11 +16,15 @@
                     </p>
                   </div>
                   <div class="row">
+                  <% if admin_signed_in? %>
                   	<div class="col-md-6">
                   		<p class = "text-left"><%= link_to '', get_correct_path(comment), method: :delete, data: { confirm: 'Delete comment?'}, remote: true, class: 'glyphicon glyphicon-trash text-danger', id: "#{comment.id}_delete", title: 'Delete comment', rel: 'tooltip' %>
                   </p>
                   	</div>
                   	<div class="col-md-6">
+                    <%  else %>
+                      <div class="col-md-6 col-md-offset-6">
+                    <% end %>
                   		<p class="text-right"><a href=<%=  "#comment-box-#{comment.id}" %> data-toggle="collapse" data-parent="#comments-accordion" ><i class="fa fa-reply"></i> Reply</a></p>
                   	</div>
                   

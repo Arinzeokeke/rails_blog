@@ -39,6 +39,8 @@ gem 'paperclip'
 gem 'friendly_id', '~> 5.1.0'
 gem 'social-share-button'
 gem 'acts-as-taggable-on'
+gem 'devise'
+gem 'rails_admin', '~> 1.0'
 # gem "administrate", "~> 0.3.0"
 
 #gem 'impressionist'

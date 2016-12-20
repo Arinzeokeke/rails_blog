@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 	#before_action :get_post
 	before_action :get_comment, only: [:destroy]
 	before_action :find_commentable
+  before_action :authenticate_admin!, only: [:destroy]
 	def create
     @comment = @commentable.comments.new comment_params
 

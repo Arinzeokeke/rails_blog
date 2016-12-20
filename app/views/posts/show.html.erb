@@ -2,14 +2,18 @@
 
  <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-color: green;">
+    <header class="intro-header" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1><%= @post.title %></h1>
                         <h2 class="subheading"><%= @post.subtitle %></h2>
-                        <span class="meta">Posted by <a href="#">Buhari</a> on <%= @post.created_at.strftime("%B %d, %Y")%> <%=  link_to "Edit Post", edit_post_path(@post), class: "meta"%></span> 
+                        <span class="meta">Posted by <a href="#">Buhari</a> on <%= @post.created_at.strftime("%B %d, %Y")%>
+                        <% if admin_signed_in? %>
+                        <%=  link_to "Edit Post", edit_post_path(@post), class: "meta"%></span>
+                        <%=  link_to "Delete Post", post_path(@post), method: :delete,  class: "meta" %> 
+                        <% end %>                         
                         <%= social_share_button_tag(@post.title) %> 
                     </div>
                 </div>
