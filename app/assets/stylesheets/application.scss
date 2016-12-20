@@ -103,10 +103,8 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
   .navbar-custom {
-    background: green;
+    background: #2E8B57;
     //border-bottom: 1px solid transparent;
-    //background-color: rgba(255, 255, 255, 0.9);
-    //border-bottom: 1px solid #f2f2f2;
   }
   .navbar-custom .navbar-brand {
     color: white;
@@ -186,13 +184,13 @@ hr.small {
 .intro-header .post-heading,
 .intro-header .page-heading {
   padding: 100px 0 50px;
-  //color: white;
+  color: white;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
-    padding: 50px 0;
+    padding: 150px 0;
   }
 }
 .intro-header .site-heading,
@@ -206,7 +204,7 @@ hr.small {
 }
 .intro-header .site-heading .subheading,
 .intro-header .page-heading .subheading {
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.1;
   display: block;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -249,6 +247,14 @@ hr.small {
   .intro-header .post-heading .subheading {
     font-size: 30px;
   }
+}
+.post {
+background-color: #fff;
+border-color: #edeeee;
+border-style: solid;
+border-radius: 3px;
+border-width: 1px;
+margin-bottom: 60px;
 }
 .post-preview > a {
   color: #333333;
@@ -433,6 +439,9 @@ img::-moz-selection {
 body {
   -webkit-tap-highlight-color: #0085A1;
 }
+
+
+
 .tag-head{
   margin: 10px;
 }
