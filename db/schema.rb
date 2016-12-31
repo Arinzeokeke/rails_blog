@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220104151) do
+ActiveRecord::Schema.define(version: 20161221042647) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",                   default: "", null: false
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20161220104151) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "counter_cache",       default: 0
+    t.integer  "admin_id"
+    t.index ["admin_id"], name: "index_posts_on_admin_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 

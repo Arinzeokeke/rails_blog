@@ -19,7 +19,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.input :subtitle %>
+    <%= f.input :subtitle, value: "jkl" %>
   </div>
 
   <div class="form-group">
@@ -31,7 +31,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.input :tag_list , placeholder: "Enter Tags as a string separated by commas. Eg: 'Rihanna, Chris Brown, Celebrity'"%>
+    <%= f.input :tag_list , placeholder: "Enter Tags as a string separated by commas. Eg: 'Rihanna, Chris Brown, Celebrity'", input_html: {value: @post.tag_list.join(', ')}%>
   </div>
 
   <div class="form-group">

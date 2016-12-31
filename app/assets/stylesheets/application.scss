@@ -443,12 +443,13 @@ body {
 
 
 .tag-head{
-  margin: 10px;
+  //margin: 10px;
 }
 
 .tag-name{
   margin-top: 70px;
   padding: 10px;
+  white-space: nowrap;
 }
 .comment-section{
   max-width:50%;
@@ -458,6 +459,7 @@ body {
 /*Comment List styles*/
 .comment-list{
   font-size: 15px;
+  max-width:80%;
 }
 .comment-list .row {
   margin-bottom: 0px;
