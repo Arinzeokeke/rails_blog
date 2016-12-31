@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= if @page_title then @page_title else 'DammyBlog' end %> </title>
+    <title><%= if @page_title then "Jibike - #{@page_title}" else 'Jibike - Nigeria/"s latest Entertainment News' end %> </title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
