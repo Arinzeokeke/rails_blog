@@ -10,10 +10,9 @@ Rails.application.routes.draw do
 
   resources :tags, only: [:index, :show]
 
-  namespace :api do
-    resources :posts do
+  
+  resources :posts do
       resources :comments
-    end
   end
  
 

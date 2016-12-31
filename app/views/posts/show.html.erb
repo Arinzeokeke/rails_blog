@@ -13,7 +13,7 @@
                         <% if admin_signed_in? %>
 
                         <%=  link_to "Edit Post", edit_post_path(@post), class: "meta"%>
-                        <%=  link_to "Delete Post", post_path(@post), method: :delete,  class: "meta" %> 
+                        <%=  link_to "Delete Post", post_path(@post), method: :delete,  data: { confirm: 'Delete comment?'}, class: "meta" %> 
                         <% end %>                         
                         <%= social_share_button_tag(@post.title) %> 
                     </div>
@@ -73,7 +73,9 @@
     
 <div class="comment-section">
 <h2> Comments </h2>
+<div class = "comment-box">
 <%= render "comments/comment_box"%>
+</div>
 
 <div id = "comments-accordion" class="comment-list">
     <ul id ="comments-all">

@@ -452,14 +452,18 @@ body {
   white-space: nowrap;
 }
 .comment-section{
-  max-width:50%;
+  //max-width:50%;
+  margin: auto;
+}
+.comment-box{
+  max-width: 50%;
   margin: auto;
 }
 
 /*Comment List styles*/
 .comment-list{
   font-size: 15px;
-  max-width:80%;
+  max-width: 100%;
 }
 .comment-list .row {
   margin-bottom: 0px;

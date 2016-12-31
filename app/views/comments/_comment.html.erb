@@ -34,7 +34,7 @@
               </div>
             </div>
           </article>
-	<div class = "collapse" id = <%=  "comment-box-#{comment.id}"%> >
+	<div class = "collapse comment-box" id = <%=  "comment-box-#{comment.id}"%> >
 	<%= form_for [comment, Comment.new]  , class: "form-inline" , remote: true do  |f| %>
 	<div class="form-group">
 		<%= f.text_field :name, placeholder: "Name", class: "form-control" %>
