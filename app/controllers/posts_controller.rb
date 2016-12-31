@@ -1,4 +1,12 @@
 class PostsController < ApplicationController
+
+  #TODOs
+
+  #search box
+  #popular posts
+
+  #end
+
   #impressionist :actions=>[:show,:index]
   before_action :find_post, only: [:edit, :update, :show, :destroy]
   #before_action :get_popular, only: [:index, :show]
@@ -6,6 +14,9 @@ class PostsController < ApplicationController
 
   def index
   	@posts = Post.all.order("created_at DESC").page params[:page]
+  end
+
+  def admin
   end
 
   def edit

@@ -17,7 +17,7 @@
                         <%= link_to "Home", posts_path%>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <%= link_to "About Us", "posts/admin" %>
                     </li>
                     <% if admin_signed_in? %>
                     <li>
@@ -35,7 +35,7 @@
                     </li>
                     <% end %>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="about.html">Contact</a>
                     </li>
                 </ul>
             </div>

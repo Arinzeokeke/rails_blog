@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :admins
   
   get 'tags/index'
+  get 'posts/admin'
 
   get 'tags/show'
 
